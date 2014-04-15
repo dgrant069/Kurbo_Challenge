@@ -1,0 +1,62 @@
+[1] pry(main)> require "net/http"
+=> true
+[2] pry(main)> http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json
+NameError: undefined local variable or method `api' for main:Object
+from (pry):2:in `__pry__'
+[3] pry(main)> agent = Net::HTTP.new("http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json")
+=> #<Net::HTTP http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json:80 open=false>
+[4] pry(main)> agent
+=> #<Net::HTTP http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json:80 open=false>
+[5] pry(main)> agent = URI("http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json")
+=> #<URI::HTTP:0x000000055f31d8 URL:http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json>
+[6] pry(main)> agent.get
+NoMethodError: undefined method `get' for #<URI::HTTP:0x000000055f31d8>
+from (pry):6:in `__pry__'
+[7] pry(main)> uri = URI("http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json")
+=> #<URI::HTTP:0x000000056125b0 URL:http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json>
+[8] pry(main)> agent = Net::HTTP.get_response(uri)
+=> #<Net::HTTPOK 200 OK readbody=true>
+[9] pry(main)> puts agent.body
+
+
+
+[23] pry(main)> meetup = URI("https://api.meetup.com/2/cities?&sign=true&query=seattle&radius=5")
+=> #<URI::HTTPS:0x000000057b0980 URL:https://api.meetup.com/2/cities?&sign=true&query=seattle&radius=5>
+[24] pry(main)> agent2 = Net::HTTP.get_response(meetup)
+=> #<Net::HTTPOK 200 OK readbody=true>
+[25] pry(main)> puts agent2.body
+{"results":[{"id":98101,"zip":"98101","lon":-122.33000183105469,"member_count":58965,"name_string":"Seattle, Washington, USA","state":"WA","ranking":0,"lat":47.61000061035156,"city":"Seattle","country":"us"}],"meta":{"lon":"","count":1,"link":"https:\/\/api.meetup.com\/2\/cities","next":"","total_count":1,"url":"https:\/\/api.meetup.com\/2\/cities?query=seattle&radius=5.0&order=size&desc=false&offset=0&format=json&page=200&sign=True","id":"","title":"Cities","updated":1263132740000,"description":"Returns Meetup cities. This method supports search by latitude\/longitude\/radius, by country\/state, by query term\/zip, or a combination of all of these. Location-only searches by lat and lon return all cities within a radius of the provided coordinates. Searches with a query return up to 10 cities matching the term, and can be sorted by size or distance to a given coordinate. 'smart' ordering can be used to return the match(es) with the highest member_count, unless a smaller size match exists nearby the given coordinates. Query searches are supported for country but not country and state","method":"Cities","lat":""}}
+=> nil
+[26] pry(main)> Time.at(1397588400000)
+=> 46257-10-24 09:00:00 -0700
+[27] pry(main)> Time.at(13975884)
+=> 1970-06-11 11:11:24 -0700
+[28] pry(main)> Time.at(139758840)
+=> 1974-06-06 06:54:00 -0700
+[29] pry(main)> Time.at(1397588400)
+=> 2014-04-15 12:00:00 -0700
+[30] pry(main)> Time.at(1396994365)
+=> 2014-04-08 14:59:25 -0700
+[31] pry(main)> meetup = Time.at(1397588400)
+=> 2014-04-15 12:00:00 -0700
+[32] pry(main)> meetup = Time.at(97588400)
+=> 1973-02-03 03:53:20 -0800
+[33] pry(main)> meetup = Time.at(1397588400)
+=> 2014-04-15 12:00:00 -0700
+[34] pry(main)> DateTime.strptime(meetup, '%Y')
+TypeError: no implicit conversion of Time into String
+from (pry):34:in `strptime'
+[35] pry(main)> meetup = Date.jd(1397588400)
+=> #<Date: 3821754-12-21 ((1397588400j,0s,0n),+0s,2299161j)>
+[36] pry(main)> meetup = Date.at(1397588400)
+NoMethodError: undefined method `at' for Date:Class
+from (pry):36:in `__pry__'
+[37] pry(main)> meetup = Time.at(1397588400)
+=> 2014-04-15 12:00:00 -0700
+[38] pry(main)> meetup.utc
+=> 2014-04-15 19:00:00 UTC
+[39] pry(main)> meetup.utc.to_i
+=> 1397588400
+[40] pry(main)> meetup.year
+=> 2014
+

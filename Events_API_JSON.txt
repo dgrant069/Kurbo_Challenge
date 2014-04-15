@@ -1,0 +1,50 @@
+{
+  "results": [{
+    "rsvp_limit": 8,
+    "status": "upcoming",
+    "visibility": "public",
+    "maybe_rsvp_count": 0,
+    "venue": {
+      "id": 19376652,
+      "lon": -122.32697,
+      "repinned": true,
+      "name": "Art Gallery Vernissage - Seattle Design Center",
+      "state": "WA",
+      "address_1": "5701 6th Ave S., Suite 276",
+      "lat": 47.551723,
+      "city": "Seattle",
+      "country": "us"
+    },
+    "fee": {
+      "amount": 10,
+      "description": "per person",
+      "label": "Price",
+      "required": "0",
+      "accepts": "cash",
+      "currency": "USD"
+    },
+    "id": "qpvjgjysgbtb",
+    "utc_offset": -25200000,
+    "distance": 4.037362575531006,
+    "duration": 10800000,
+    "time": 1397584800000,
+    "waitlist_count": 0,
+    "updated": 1396936909000,
+    "yes_rsvp_count": 6,
+    "created": 1396735763000,
+    "event_url": "http://www.meetup.com/Seattle-Design-Center-Life-Drawing-Painting-Meetup/events/175538832/",
+    "description": "<p>3 hours session from live model. <b>Please bring your own easel!!!</b> Entrance from the garage of SDC( largest building) . You will see a big white door with the sign " Keep clear at all times) , take a left and you will see an elevator - you will go to a second floor - Room 268.</p>",
+    "name": "Figure Drawing & Painting at Art Gallery Vernissage - Seattle Design Center",
+    "headcount": 0,
+    "group": {
+      "id": 13747242,
+      "group_lat": 47.540000915527344,
+      "name": "Seattle Design Center-Life Drawing & Painting Meetup",
+      "group_lon": -122.30999755859375,
+      "join_mode": "open",
+      "urlname": "Seattle-Design-Center-Life-Drawing-Painting-Meetup",
+      "who": "artists, art students"
+    }
+  },
+  {...}
+}

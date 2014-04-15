@@ -1,0 +1,9 @@
+API-key: e5515c259fb2c7b6
+http://api.wunderground.com/api/___API_KEY___/___FEATURE___/q/___STATE_ABV___/___CITY_NAME___.json
+http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json
+
+
+
+API-key: 3e6c393c174e554f34475f40762a4f64
+https://api.meetup.com/2/open_events?&sign=true&key=___API_KEY___&text=___SEARCH_TERM___&state=___STATE_ABV___&city=___CITY_NAME___&country=US&radius=5&page=10
+https://api.meetup.com/2/open_events?&sign=true&key=3e6c393c174e554f34475f40762a4f64&text=tech&state=WA&city=Seattle&country=US&radius=5&page=100
