@@ -1,33 +1,5 @@
 {
-  "response": {
-    "version": "0.1",
-    "termsofService": "http://www.wunderground.com/weather/api/d/terms.html",
-    "features": {
-      "forecast10day": 1
-    }
-  },
   "forecast": {
-    "txt_forecast": {
-      "date": "8:00 AM PDT",
-      "forecastday": [{
-        "period": 0,
-        "icon": "partlycloudy",
-        "icon_url": "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif",
-        "title": "Tuesday",
-        "fcttext": "Overcast in the morning, then clear. High of 75F. Winds from the SSW at 5 to 20 mph.",
-        "fcttext_metric": "Overcast in the morning, then clear. High of 24C. Windy. Winds from the SSW at 5 to 30 km/h.",
-        "pop": "0"
-        }, {
-        "period": 1,
-        "icon": "partlycloudy",
-        "icon_url": "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif",
-        "title": "Tuesday Night",
-        "fcttext": "Mostly cloudy. Low of 55F. Winds from the SW at 5 to 15 mph.",
-        "fcttext_metric": "Mostly cloudy. Low of 13C. Breezy. Winds from the SW at 10 to 20 km/h.",
-        "pop": "0"
-        }
-      ]
-    },
     "simpleforecast": {
       "forecastday": [{
         "date": {
