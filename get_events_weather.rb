@@ -1,30 +1,23 @@
-
-# Here's the Weather API
-
 require 'net/http'
 require 'json'
 
-# Set the scene
-state = "WA".downcase
-city = "Seattle".downcase
+# Get user input
+print "What zipcode are you in?  "
+ZIPCODE = gets.chomp
+print "What events are you looking for (example: music)?  "
+SEARCH_TERM = gets.chomp.downcase
 
 # I like to have all my variables as close to in one place as possible
-meetup_uri = URI("https://api.meetup.com/2/open_events?&sign=true&key=3e6c393c174e554f34475f40762a4f64&text=tech&state=#{state}&city=#{city}&country=US&radius=5&page=100")
+meetup_uri = URI("https://api.meetup.com/2/open_events?&sign=true&key=3e6c393c174e554f34475f40762a4f64&text=#{SEARCH_TERM}&&zip=#{ZIPCODE}&radius=5&page=100")
 meetup_agent = Net::HTTP.get_response(meetup_uri)
 meetup_json = JSON.parse(meetup_agent.body)
 meetup_details = {}
 dates = []
 
-weather_uri = URI("http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/WA/Seattle.json")
+weather_uri = URI("http://api.wunderground.com/api/e5515c259fb2c7b6/forecast10day/q/#{ZIPCODE}.json")
 weather_agent = Net::HTTP.get_response(weather_uri)
 weather_json = JSON.parse(weather_agent.body)
 weather_details = {}
-
-# Now need to combine JSON results into a hash
-# Friday, January 25th, 2014 =    "time": 1397584800000/1000, then use Date and/or Time to parse further
-# Radiohead @ The Fox Theater =   "name", include ["venue"]["name"], include address if time
-# 8pm
-# 67 degrees and Rainy
 
 # So we don't return things that are more than a week out
 def yday_check (day)
@@ -60,8 +53,17 @@ weather_json["forecast"]["simpleforecast"]["forecastday"].each do |result|
   end
 end
 
+# def printer
+#   meetup_details
+# end
+
 # Combo printer
-meetup_details.each do |key, value|
-  if value["date"] == weather_details
-  puts value
+meetup_details.each do |id, values|
+  day = values[:date]
+  values[:weather] = weather_details["#{day}"]
+  # printer
+  puts "Date: #{values[:date]}. @#{values[:time]}\n"
+  puts "Event: #{values[:event_name]}\n"
+  puts "Hosted by: #{values[:group_name]}\n"
+  puts "Weather: #{values[:weather]}\n\n\n"
 end
