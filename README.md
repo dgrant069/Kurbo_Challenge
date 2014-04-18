@@ -4,14 +4,14 @@ Events and Weather API Masher
 
 ### How to use?
 Run the following script in your CLI:
-$ '&#ruby get_events_weather.rb'
+$ "ruby get_events_weather.rb"
 
 
 ### What is it doing?
 This script uses Ruby's built in Net::http class to connect and interact with 2
 APIs - Wunderground's weather API and Meetup's event API.
-I save the specific JSON received from API that I want (dates, weather info, event places, etc) into a hash.
-I then add "value" (the weather info) from the weather hash to the Meetup hash, based on the key (the dates).
+I saved the specific JSON received from API that I wanted (dates, weather info, event places, etc) into a hash.
+I then added "value" (the weather info) from the weather hash to the Meetup hash, based on the key (the dates).
 
 ### What were the steps?
 1. Identify the API's to use - 1h
