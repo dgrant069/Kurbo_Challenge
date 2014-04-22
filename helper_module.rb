@@ -1,3 +1,5 @@
+require 'pry'
+
 module Helper
   def yday_check (day)
     if day.yday <= 7

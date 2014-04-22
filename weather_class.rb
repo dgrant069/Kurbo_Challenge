@@ -1,13 +1,14 @@
 require_relative 'helper_module'
+require 'pry'
 
 class Weather
   require 'net/http'
   require 'json'
   include Helper
-
-  @weather_details = {}
+  attr :weather_details
 
   def initialize(zipcode)
+    @weather_details = {}
     @zipcode = zipcode
   end
 

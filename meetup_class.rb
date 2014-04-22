@@ -1,13 +1,14 @@
 require_relative 'helper_module'
+require 'pry'
 
 class Meetup
   require 'net/http'
   require 'json'
   include Helper
-
-  @meetup_details = {}
+  attr :meetup_details
 
   def initialize (zipcode, search_term)
+    @meetup_details = {}
     @zipcode = zipcode
     @search_term = search_term
   end
@@ -20,6 +21,7 @@ class Meetup
 
   def create_meetup_json
     begin
+      # binding.pry
       @meetup_json["results"].each do |result|
         date = Time.at(result["time"]/1000)
         if (yday_check(date) - yday_check(Time.new)) <= 7

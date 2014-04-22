@@ -1,6 +1,6 @@
 require_relative 'meetup_class'
 require_relative 'weather_class'
-
+require 'pry'
 
 # Get user input
 print "What zipcode are you in?  "
@@ -17,15 +17,11 @@ meetup.create_meetup_json
 weather.get_weather_info
 weather.create_weather_json
 
-# def printer
-#   meetup_details
-# end
-
 # Combo printer
 begin
-  @meetup_details.each do |id, values|
+  meetup.meetup_details.each do |id, values|
     day = values[:date]
-    values[:weather] = @weather_details["#{day}"]
+    values[:weather] = weather.weather_details["#{day}"]
     # printer
     puts "\nDate: #{values[:date]}. @#{values[:time]}\n"
     puts "Event: #{values[:event_name]}\n"
